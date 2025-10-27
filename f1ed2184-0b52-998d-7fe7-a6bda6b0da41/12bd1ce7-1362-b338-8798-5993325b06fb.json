@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.2",
   "info": {
     "title": "CacheTest",
     "version": "1.0"
@@ -15,7 +15,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "application/json": {
+              "text/plain": {
                 "schema": {
                   "type": "array",
                   "items": {
