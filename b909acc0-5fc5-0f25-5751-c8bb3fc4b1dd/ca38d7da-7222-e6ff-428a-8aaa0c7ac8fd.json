@@ -15,7 +15,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/json": {
+              "text/plain": {
                 "schema": {
                   "type": "array",
                   "items": {
