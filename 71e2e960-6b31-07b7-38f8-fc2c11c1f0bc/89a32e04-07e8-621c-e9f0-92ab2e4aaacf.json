@@ -1,0 +1,4705 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "A2Soft.ApiDefender.InventoryService.Api",
+    "description": "Сервис инвентаризации Api.Defender",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1.0/ApiEnvironment": {
+      "post": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Создать Окружение API",
+        "operationId": "v1__ApiEnvironment_Create",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "swaggerFile": {
+                    "type": "string",
+                    "description": "Файл сваггера",
+                    "format": "binary"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "URL"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Наименование окружения"
+                  },
+                  "swaggerFileUrl": {
+                    "type": "string",
+                    "description": "Swagger-спецификация. URL"
+                  },
+                  "apiEnvironmentType": {
+                    "$ref": "#/components/schemas/ApiEnvironmentTypes"
+                  },
+                  "serviceId": {
+                    "type": "string",
+                    "description": "Идентификатор сервиса",
+                    "format": "uuid"
+                  }
+                }
+              },
+              "encoding": {
+                "swaggerFile": {
+                  "style": "form"
+                },
+                "url": {
+                  "style": "form"
+                },
+                "name": {
+                  "style": "form"
+                },
+                "swaggerFileUrl": {
+                  "style": "form"
+                },
+                "apiEnvironmentType": {
+                  "style": "form"
+                },
+                "serviceId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostApiEnvironmentResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostApiEnvironmentResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostApiEnvironmentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/ApiEnvironment/{id}/Operations": {
+      "post": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Получить список операций",
+        "operationId": "v1__ApiEnvironment_GetOperations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор Окружение APIа",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Запрос",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetOperationsRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetOperationsRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetOperationsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOperationsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOperationsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOperationsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/ApiEnvironment/{id}/Versions": {
+      "get": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Получить список версий",
+        "operationId": "v1__ApiEnvironment_GetVersions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор Окружение APIа",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVersionsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVersionsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetVersionsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/ApiEnvironment/{id}": {
+      "post": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Загрузить новую версию",
+        "operationId": "v1__ApiEnvironment_UploadVersion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор окружения",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "swaggerFile": {
+                    "type": "string",
+                    "description": "Файл сваггера",
+                    "format": "binary"
+                  },
+                  "swaggerFileUrl": {
+                    "type": "string",
+                    "description": "Swagger-спецификация. URL"
+                  }
+                }
+              },
+              "encoding": {
+                "swaggerFile": {
+                  "style": "form"
+                },
+                "swaggerFileUrl": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostVersionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostVersionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostVersionResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Удалить окружение",
+        "operationId": "v1__ApiEnvironment_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор окружения",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Получить карточку окружения",
+        "operationId": "v1__ApiEnvironment_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор окружения",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetApiEnvironmentByIdResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetApiEnvironmentByIdResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetApiEnvironmentByIdResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Обновить окружение",
+        "operationId": "v1__ApiEnvironment_Put",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор окружения",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Запрос на обновление окружения",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutApiEnvironmentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutApiEnvironmentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutApiEnvironmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1.0/Internal/ApiEnvironment/{id}/Operations": {
+      "get": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Получить основную информацию методов окружения",
+        "operationId": "v1_Internal_ApiEnvironment_GetOperations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBasicInfoOperationsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBasicInfoOperationsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBasicInfoOperationsResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/Internal/ApiEnvironment/{id}": {
+      "get": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Получить данные для последней версии окружения",
+        "operationId": "v1_Internal_ApiEnvironment_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор окружения",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetEnvironmentByIdResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetEnvironmentByIdResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetEnvironmentByIdResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/Internal/ApiEnvironment": {
+      "get": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Получить список окружений",
+        "operationId": "v1_Internal_ApiEnvironment_GetEnvironments",
+        "parameters": [
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "Поле сортировки",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isAscending",
+            "in": "query",
+            "description": "Сортировка по возрастанию",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "apiEnvironments",
+            "in": "query",
+            "description": "Список типов окружений",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ApiEnvironmentTypes"
+              }
+            }
+          },
+          {
+            "name": "serviceIds",
+            "in": "query",
+            "description": "Идентификатор сервиса",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetEnvironmentsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetEnvironmentsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetEnvironmentsResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/Internal/ApiEnvironment/{id}/OpenApiOperation/ShadowAPI": {
+      "put": {
+        "tags": [
+          "ApiEnvironment"
+        ],
+        "summary": "Обновить операцию скрытого API",
+        "operationId": "v1_Internal_ApiEnvironment_PutShadowOperation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор окружения",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Запрос на обновление",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutShadowOpenApiOperationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutShadowOpenApiOperationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutShadowOpenApiOperationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutShadowOpenApiOperationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutShadowOpenApiOperationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PutShadowOpenApiOperationResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/Authentication/Register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Регистрация в системе",
+        "operationId": "v1__Authentication_Register",
+        "requestBody": {
+          "description": "Запрос",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/Authentication/Login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Вход в систему",
+        "operationId": "v1__Authentication_Login",
+        "requestBody": {
+          "description": "Запрос",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/Internal/OpenApiDocument/{id}/Operations/{path}": {
+      "get": {
+        "tags": [
+          "OpenApiDocument"
+        ],
+        "summary": "Получить список операций по пути",
+        "operationId": "v1_Internal_OpenApiDocument_GetOperationsByPath",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор документа OpenAPI",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "description": "Путь",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "httpMethod",
+            "in": "query",
+            "description": "Http-метод",
+            "schema": {
+              "$ref": "#/components/schemas/HttpMethods"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetOpenApiOperationByIdResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetOpenApiOperationByIdResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetOpenApiOperationByIdResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/OpenApiOperation/{id}": {
+      "get": {
+        "tags": [
+          "OpenApiOperation"
+        ],
+        "summary": "Получить OpenApi операцию по Id",
+        "operationId": "v1__OpenApiOperation_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор OpenApi операции",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOpenApiOperationByIdResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOpenApiOperationByIdResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOpenApiOperationByIdResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/OpenApiOperation/{id}/Versions": {
+      "get": {
+        "tags": [
+          "OpenApiOperation"
+        ],
+        "summary": "Получить версии операции Open API",
+        "operationId": "v1__OpenApiOperation_GetOperationVersions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор операции Open API",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOperationVersionsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOperationVersionsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOperationVersionsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/OpenApiOperation/{id}/Specification": {
+      "get": {
+        "tags": [
+          "OpenApiOperation"
+        ],
+        "summary": "Получить спецификацию Open API",
+        "operationId": "v1__OpenApiOperation_GetSpecification",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор операции Open API",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadOpenApiSpecificationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadOpenApiSpecificationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadOpenApiSpecificationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/Internal/OpenApiOperation/{id}": {
+      "get": {
+        "tags": [
+          "OpenApiOperation"
+        ],
+        "summary": "Получить операцию OpenAPI по идентификатору",
+        "operationId": "v1_Internal_OpenApiOperation_GetOperationById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetOpenApiOperationByIdResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetOpenApiOperationByIdResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalGetOpenApiOperationByIdResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/Internal/OpenApiOperation/{id}/BasicInfo": {
+      "get": {
+        "tags": [
+          "OpenApiOperation"
+        ],
+        "summary": "Получить основную информацию операции OpenAPI по идентификатору",
+        "operationId": "v1_Internal_OpenApiOperation_GetBasicInfoOperationById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBasicInfoOperationByIdResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBasicInfoOperationByIdResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBasicInfoOperationByIdResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/Internal/OpenApiOperation/{id}/Tag": {
+      "put": {
+        "tags": [
+          "OpenApiOperation"
+        ],
+        "summary": "Изменить тег операции",
+        "operationId": "v1_Internal_OpenApiOperation_PutOperationTag",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Запрос",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutOperationTagRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutOperationTagRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutOperationTagRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "OpenApiOperation"
+        ],
+        "summary": "Удалить тег операции",
+        "operationId": "v1_Internal_OpenApiOperation_DeleteOperationTag",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Запрос",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteOperationTagRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteOperationTagRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteOperationTagRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyHeader": [ ]
+          }
+        ]
+      }
+    },
+    "/api/v1.0/Service": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "summary": "Получить список сервисов",
+        "operationId": "v1__Service_Get",
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Номер страницы, начиная с 1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Размер страницы",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "Поле сортировки",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isAscending",
+            "in": "query",
+            "description": "Сортировка по возрастанию",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Наименование",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "apiEnvironmentTypes",
+            "in": "query",
+            "description": "Окружения",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ApiEnvironmentTypes"
+              }
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "Описание",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vulnerabilityStatuses",
+            "in": "query",
+            "description": "Статусы",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/VulnerabilityStatuses"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetServicesResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetServicesResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetServicesResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Service"
+        ],
+        "summary": "Создать сервис",
+        "operationId": "v1__Service_Create",
+        "requestBody": {
+          "description": "Запрос",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostServiceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostServiceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostServiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostServiceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostServiceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostServiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/Service/{serviceId}/ApiEnvironments": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "summary": "Получить список Окружение APIов",
+        "operationId": "v1__Service_GetApiEnvironments",
+        "parameters": [
+          {
+            "name": "serviceId",
+            "in": "path",
+            "description": "Идентификатор сервиса",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Номер страницы, начиная с 1",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Размер страницы",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "Поле сортировки",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isAscending",
+            "in": "query",
+            "description": "Сортировка по возрастанию",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "apiEnvironments",
+            "in": "query",
+            "description": "Список типов окружений",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ApiEnvironmentTypes"
+              }
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "description": "URL",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Дата добавления С",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Дата добавления ПО",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "vulnerabilityStatuses",
+            "in": "query",
+            "description": "Список статусов",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/VulnerabilityStatuses"
+              }
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Название",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetApiEnvironmentsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetApiEnvironmentsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetApiEnvironmentsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/Service/{id}": {
+      "put": {
+        "tags": [
+          "Service"
+        ],
+        "summary": "Изменить сервис",
+        "operationId": "v1__Service_Put",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор сущности",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Запрос",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutServiceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutServiceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PutServiceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Service"
+        ],
+        "summary": "Удалить сервис",
+        "operationId": "v1__Service_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор сервиса",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "summary": "Получить сервис по Id",
+        "operationId": "v1__Service_GetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор сущности",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetailsResponse"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetServiceByIdResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetServiceByIdResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetServiceByIdResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiEnvironmentTypes": {
+        "enum": [
+          "Dev",
+          "Test",
+          "Stage",
+          "Prod"
+        ],
+        "type": "string",
+        "description": "Типы окружений"
+      },
+      "ApiSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Тип схемы",
+            "nullable": true
+          },
+          "format": {
+            "type": "string",
+            "description": "Формат данных",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание схемы",
+            "nullable": true
+          },
+          "nullable": {
+            "type": "boolean",
+            "description": "Может ли значение быть null",
+            "nullable": true
+          },
+          "objectProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ApiSchema"
+            },
+            "description": "Свойства объекта",
+            "nullable": true
+          },
+          "required": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Обязательные свойства объекта",
+            "nullable": true
+          },
+          "arrayItems": {
+            "$ref": "#/components/schemas/ApiSchema"
+          },
+          "minLength": {
+            "type": "integer",
+            "description": "Минимальная длина строки",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxLength": {
+            "type": "integer",
+            "description": "Максимальная длина строки",
+            "format": "int32",
+            "nullable": true
+          },
+          "pattern": {
+            "type": "string",
+            "description": "Регулярное выражение для валидации",
+            "nullable": true
+          },
+          "minimum": {
+            "type": "number",
+            "description": "Минимальное значение",
+            "format": "double",
+            "nullable": true
+          },
+          "maximum": {
+            "type": "number",
+            "description": "Максимальное значение",
+            "format": "double",
+            "nullable": true
+          },
+          "enum": {
+            "type": "array",
+            "items": { },
+            "description": "Допустимые значения перечисления",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Схема API"
+      },
+      "DeleteOperationTagRequest": {
+        "type": "object",
+        "properties": {
+          "tagName": {
+            "type": "string",
+            "description": "Наименование тега",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на удаление тега"
+      },
+      "DownloadOpenApiSpecificationResponse": {
+        "type": "object",
+        "properties": {
+          "specificationJson": {
+            "type": "string",
+            "description": "Данные файла",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на получение спецификации OpenApi"
+      },
+      "GetApiEnvironmentByIdResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Название окружения",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "description": "URL",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/ApiEnvironmentTypes"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Идентификатор сервиса",
+            "format": "uuid"
+          },
+          "openApiFileUrl": {
+            "type": "string",
+            "description": "Файл спецификации OpenApi",
+            "nullable": true
+          },
+          "document": {
+            "$ref": "#/components/schemas/GetApiEnvironmentByIdResponseDocument"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на получение карточки окружения"
+      },
+      "GetApiEnvironmentByIdResponseDocument": {
+        "type": "object",
+        "properties": {
+          "methodsCountTotal": {
+            "type": "integer",
+            "description": "Общее количество методов",
+            "format": "int32"
+          },
+          "methods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetApiEnvironmentByIdResponseDocumentMethod"
+            },
+            "description": "Количество методов по типу",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Информация о методах в окружении для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ApiEnvironmentRequests.GetApiEnvironmentById.GetApiEnvironmentByIdResponse"
+      },
+      "GetApiEnvironmentByIdResponseDocumentMethod": {
+        "type": "object",
+        "properties": {
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Количество методов",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Количество методов по типу метода для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ApiEnvironmentRequests.GetApiEnvironmentById.GetApiEnvironmentByIdResponseDocument"
+      },
+      "GetApiEnvironmentsResponse": {
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string",
+            "description": "Имя сервиса",
+            "nullable": true
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetApiEnvironmentsResponseItem"
+            },
+            "description": "Список сущностей",
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Общее количество сущностей",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос получения списка Окружений API"
+      },
+      "GetApiEnvironmentsResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор сущности",
+            "format": "uuid"
+          },
+          "apiEnvironmentType": {
+            "$ref": "#/components/schemas/ApiEnvironmentTypes"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Название",
+            "nullable": true
+          },
+          "createdOn": {
+            "type": "string",
+            "description": "Дата добавления",
+            "format": "date-time"
+          },
+          "vulnerabilityStatus": {
+            "$ref": "#/components/schemas/VulnerabilityStatuses"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Окружение API для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ServiceRequests.GetEndpoints.GetApiEnvironmentsResponse"
+      },
+      "GetBasicInfoOperationByIdResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "endpointId": {
+            "type": "string",
+            "description": "Идентификатор окружения",
+            "format": "uuid"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          },
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "branchId": {
+            "type": "string",
+            "description": "Идентификатор ветки",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос основной информации о методе"
+      },
+      "GetBasicInfoOperationsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetBasicInfoOperationsResponseItem"
+            },
+            "description": "Список методов",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на получение основной информации методов окружения"
+      },
+      "GetBasicInfoOperationsResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          },
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "branchId": {
+            "type": "string",
+            "description": "Идентификатор ветки",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Сущность для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.ApiEnvironmentRequests.GetBasicInfoOperations.GetBasicInfoOperationsResponse"
+      },
+      "GetOpenApiOperationByIdResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "branchId": {
+            "type": "string",
+            "description": "Идентификатор ветки",
+            "format": "uuid"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "nullable": true
+          },
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "operationId": {
+            "type": "string",
+            "description": "Идентификатор операции в OpenAPI",
+            "nullable": true
+          },
+          "vulnerabilityStatus": {
+            "$ref": "#/components/schemas/VulnerabilityStatuses"
+          },
+          "openApiParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiParameterResponseItem"
+            },
+            "description": "Параметры операции",
+            "nullable": true
+          },
+          "requestBody": {
+            "$ref": "#/components/schemas/OpenApiRequestBodyResponseItem"
+          },
+          "responses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiResponseResponseItem"
+            },
+            "description": "Ответы операции",
+            "nullable": true
+          },
+          "tags": {
+            "type": "object",
+            "additionalProperties": { },
+            "description": "Теги",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на получение OpenApi операции по Id"
+      },
+      "GetOperationVersionsResponse": {
+        "type": "object",
+        "properties": {
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetOperationVersionsResponseItem"
+            },
+            "description": "Список сущностей",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос получения старых версий"
+      },
+      "GetOperationVersionsResponseItem": {
+        "type": "object",
+        "properties": {
+          "openApiOperationId": {
+            "type": "string",
+            "description": "Идентификатор операции Open API",
+            "format": "uuid"
+          },
+          "documentVersion": {
+            "type": "integer",
+            "description": "Версия документа",
+            "format": "int32"
+          },
+          "createdOn": {
+            "type": "string",
+            "description": "Дата создания",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Сущность для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.OpenApiOperationRequests.GetOperationVersions.GetOperationVersionsResponse"
+      },
+      "GetOperationsRequest": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "description": "Номер страницы, начиная с 1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Размер страницы",
+            "format": "int32"
+          },
+          "orderBy": {
+            "type": "string",
+            "description": "Поле сортировки",
+            "nullable": true
+          },
+          "isAscending": {
+            "type": "boolean",
+            "description": "Сортировка по возрастанию"
+          },
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Название",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "nullable": true
+          },
+          "vulnerabilityStatuses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VulnerabilityStatuses"
+            },
+            "description": "Статусы",
+            "nullable": true
+          },
+          "versionNumber": {
+            "type": "integer",
+            "description": "Номер версии",
+            "format": "int32",
+            "nullable": true
+          },
+          "tags": {
+            "type": "object",
+            "additionalProperties": { },
+            "description": "Теги",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на получение списка операций"
+      },
+      "GetOperationsResponse": {
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string",
+            "description": "Наименование сервиса",
+            "nullable": true
+          },
+          "apiEnvironmentName": {
+            "type": "string",
+            "description": "Наименование окружения",
+            "nullable": true
+          },
+          "apiEnvironmentType": {
+            "$ref": "#/components/schemas/ApiEnvironmentTypes"
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetOperationsResponseItem"
+            },
+            "description": "Список сущностей",
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Общее количество сущностей",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ServiceRequests.GetOperations.GetOperationsRequest"
+      },
+      "GetOperationsResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор сущности",
+            "format": "uuid"
+          },
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Название",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "nullable": true
+          },
+          "vulnerabilityStatus": {
+            "$ref": "#/components/schemas/VulnerabilityStatuses"
+          },
+          "vulnerabilitiesCount": {
+            "type": "integer",
+            "description": "Количество уязвимостей",
+            "format": "int32",
+            "nullable": true
+          },
+          "tags": {
+            "type": "object",
+            "additionalProperties": { },
+            "description": "Теги",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Сущность для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ServiceRequests.GetOperations.GetOperationsResponse"
+      },
+      "GetServiceByIdResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на получение данных о сервисе по идентификатору"
+      },
+      "GetServicesResponse": {
+        "type": "object",
+        "properties": {
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetServicesResponseItem"
+            },
+            "description": "Список сущностей",
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Общее количество сущностей",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ServiceRequests.GetServices.GetServicesRequest"
+      },
+      "GetServicesResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор сервиса",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Название сервиса",
+            "nullable": true
+          },
+          "apiEnvironmentTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiEnvironmentTypes"
+            },
+            "description": "Окружения",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описания",
+            "nullable": true
+          },
+          "vulnerabilityStatus": {
+            "$ref": "#/components/schemas/VulnerabilityStatuses"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Сервис для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ServiceRequests.GetServices.GetServicesResponse"
+      },
+      "GetVersionsResponse": {
+        "type": "object",
+        "properties": {
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetVersionsResponseItem"
+            },
+            "description": "Список сущностей",
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Общее количество сущностей",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос получения списка версий"
+      },
+      "GetVersionsResponseItem": {
+        "type": "object",
+        "properties": {
+          "openApiDocumentId": {
+            "type": "string",
+            "description": "Идентификатор схемы API",
+            "format": "uuid"
+          },
+          "versionNumber": {
+            "type": "integer",
+            "description": "Номер версии",
+            "format": "int32"
+          },
+          "createdOn": {
+            "type": "string",
+            "description": "Дата создания",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Сущность для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ServiceRequests.GetVersions.GetVersionsResponse"
+      },
+      "HttpMethods": {
+        "enum": [
+          "Get",
+          "Post",
+          "Put",
+          "Delete",
+          "Patch",
+          "Head",
+          "Trace",
+          "Options"
+        ],
+        "type": "string",
+        "description": "HTTP методы"
+      },
+      "HttpStatusCode": {
+        "enum": [
+          "Continue",
+          "SwitchingProtocols",
+          "Processing",
+          "EarlyHints",
+          "OK",
+          "Created",
+          "Accepted",
+          "NonAuthoritativeInformation",
+          "NoContent",
+          "ResetContent",
+          "PartialContent",
+          "MultiStatus",
+          "AlreadyReported",
+          "IMUsed",
+          "MultipleChoices",
+          "MovedPermanently",
+          "Found",
+          "SeeOther",
+          "NotModified",
+          "UseProxy",
+          "Unused",
+          "TemporaryRedirect",
+          "PermanentRedirect",
+          "BadRequest",
+          "Unauthorized",
+          "PaymentRequired",
+          "Forbidden",
+          "NotFound",
+          "MethodNotAllowed",
+          "NotAcceptable",
+          "ProxyAuthenticationRequired",
+          "RequestTimeout",
+          "Conflict",
+          "Gone",
+          "LengthRequired",
+          "PreconditionFailed",
+          "RequestEntityTooLarge",
+          "RequestUriTooLong",
+          "UnsupportedMediaType",
+          "RequestedRangeNotSatisfiable",
+          "ExpectationFailed",
+          "MisdirectedRequest",
+          "UnprocessableEntity",
+          "Locked",
+          "FailedDependency",
+          "UpgradeRequired",
+          "PreconditionRequired",
+          "TooManyRequests",
+          "RequestHeaderFieldsTooLarge",
+          "UnavailableForLegalReasons",
+          "InternalServerError",
+          "NotImplemented",
+          "BadGateway",
+          "ServiceUnavailable",
+          "GatewayTimeout",
+          "HttpVersionNotSupported",
+          "VariantAlsoNegotiates",
+          "InsufficientStorage",
+          "LoopDetected",
+          "NotExtended",
+          "NetworkAuthenticationRequired"
+        ],
+        "type": "string"
+      },
+      "InternalGetEnvironmentByIdOpenApiOperation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "branchId": {
+            "type": "string",
+            "description": "Идентификатор ветви",
+            "format": "uuid"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          },
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "operationId": {
+            "type": "string",
+            "description": "Идентификатор операции в OpenAPI",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Операция OpenApi для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.ApiEnvironmentRequests.InternalGetEnvironmentById.InternalGetEnvironmentByIdResponse"
+      },
+      "InternalGetEnvironmentByIdResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Название окружения",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "description": "URL",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/ApiEnvironmentTypes"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Идентификатор сервиса",
+            "format": "uuid"
+          },
+          "serviceName": {
+            "type": "string",
+            "description": "Наименование сервиса",
+            "nullable": true
+          },
+          "openApiFileUrl": {
+            "type": "string",
+            "description": "Файл спецификации OpenApi",
+            "nullable": true
+          },
+          "openApiDocument": {
+            "$ref": "#/components/schemas/OpenApiDocumentResponseBase"
+          },
+          "openApiOperations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InternalGetEnvironmentByIdOpenApiOperation"
+            },
+            "description": "Информация о методах в окружении",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос данных по окружению"
+      },
+      "InternalGetEnvironmentsResponse": {
+        "type": "object",
+        "properties": {
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InternalGetEnvironmentsResponseItem"
+            },
+            "description": "Список сущностей",
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "description": "Общее количество сущностей",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на получение списка окружений"
+      },
+      "InternalGetEnvironmentsResponseItem": {
+        "type": "object",
+        "properties": {
+          "environmentId": {
+            "type": "string",
+            "description": "Идентификатор окружения",
+            "format": "uuid"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Идентификатор сервиса",
+            "format": "uuid"
+          },
+          "environmentType": {
+            "$ref": "#/components/schemas/ApiEnvironmentTypes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Окружение для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.ApiEnvironmentRequests.InternalGetEnvironments.InternalGetEnvironmentsResponse"
+      },
+      "InternalGetOpenApiOperationByIdOpenApiDocumentResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "versionNumber": {
+            "type": "integer",
+            "description": "Номер версии",
+            "format": "int32"
+          },
+          "apiEnvironmentId": {
+            "type": "string",
+            "description": "Идентификатор Окружение API",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OpenApiDocument для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationRequests.GetById.InternalGetOpenApiOperationByIdResponse"
+      },
+      "InternalGetOpenApiOperationByIdResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "branchId": {
+            "type": "string",
+            "description": "Идентификатор ветви",
+            "format": "uuid"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "nullable": true
+          },
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "operationId": {
+            "type": "string",
+            "description": "Идентификатор операции в OpenAPI",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "description": "Ссылка на стенд",
+            "nullable": true
+          },
+          "apiEnvironmentName": {
+            "type": "string",
+            "description": "Название окружения",
+            "nullable": true
+          },
+          "tags": {
+            "type": "object",
+            "additionalProperties": { },
+            "description": "Теги",
+            "nullable": true
+          },
+          "openApiRequestBody": {
+            "$ref": "#/components/schemas/OpenApiRequestBodyResponseBase"
+          },
+          "openApiParameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiParameterResponseBase"
+            },
+            "description": "Параметры OpenAPI",
+            "nullable": true
+          },
+          "openApiResponses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiResponseResponseBase"
+            },
+            "description": "Ответы OpenAPI",
+            "nullable": true
+          },
+          "openApiDocument": {
+            "$ref": "#/components/schemas/InternalGetOpenApiOperationByIdOpenApiDocumentResponseItem"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на получение операции OpenAPI по идентификатору"
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "description": "Логин",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "description": "Пароль",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на логин."
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Идентификатор пользователя.",
+            "format": "uuid"
+          },
+          "token": {
+            "type": "string",
+            "description": "Текст токена.",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "Токен для обновления токена.",
+            "nullable": true
+          },
+          "createdOn": {
+            "type": "string",
+            "description": "Время создания токена.",
+            "format": "date-time"
+          },
+          "tokenType": {
+            "type": "string",
+            "description": "Тип токена.",
+            "nullable": true
+          },
+          "tokenTypeId": {
+            "type": "integer",
+            "description": "Идентификатор типа токена.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Данные о созданном токене аутентификации."
+      },
+      "OpenApiContentResponseBase": {
+        "type": "object",
+        "properties": {
+          "apiSchema": {
+            "$ref": "#/components/schemas/ApiSchema"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель контента API для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationResponseBase.OpenApiOperationResponseBase"
+      },
+      "OpenApiContentResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "content": {
+            "type": "string",
+            "description": "Контент",
+            "nullable": true
+          },
+          "schemas": {
+            "type": "string",
+            "description": "Сериализованная схема",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель контента API для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.OpenApiOperationRequests.GetOpenApiOperationById.OpenApiParameterResponseItem"
+      },
+      "OpenApiContentWithMediaTypeResponseBase": {
+        "type": "object",
+        "properties": {
+          "apiSchema": {
+            "$ref": "#/components/schemas/ApiSchema"
+          },
+          "mediaType": {
+            "type": "string",
+            "description": "Тип медиа",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель контента API для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationResponseBase.OpenApiRequestBodyResponseBase и A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationResponseBase.OpenApiOperationResponseBase"
+      },
+      "OpenApiContentWithMediaTypeResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "content": {
+            "type": "string",
+            "description": "Контент",
+            "nullable": true
+          },
+          "schemas": {
+            "type": "string",
+            "description": "Сериализованная схема",
+            "nullable": true
+          },
+          "mediaType": {
+            "type": "string",
+            "description": "Тип медиа",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель контента API для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.OpenApiOperationRequests.GetOpenApiOperationById.OpenApiRequestBodyResponseItem и A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.OpenApiOperationRequests.GetOpenApiOperationById.OpenApiResponseResponseItem"
+      },
+      "OpenApiDocumentResponseBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "versionNumber": {
+            "type": "integer",
+            "description": "Номер версии",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "OpenApiDocument для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationResponseBase.OpenApiOperationResponseBase"
+      },
+      "OpenApiParameterResponseBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "location": {
+            "$ref": "#/components/schemas/ParameterLocation"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Обязательность параметра"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание параметра",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/OpenApiContentResponseBase"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель параметра для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationResponseBase.OpenApiOperationResponseBase"
+      },
+      "OpenApiParameterResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "location": {
+            "$ref": "#/components/schemas/ParameterLocation"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Обязательность параметра"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание параметра",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/OpenApiContentResponseItem"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель параметра для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.OpenApiOperationRequests.GetOpenApiOperationById.GetOpenApiOperationByIdResponse"
+      },
+      "OpenApiRequestBodyResponseBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание тела запроса",
+            "nullable": true
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Обязательность тела запроса"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiContentWithMediaTypeResponseBase"
+            },
+            "description": "Контент OpenAPI",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель тела запроса для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationResponseBase.OpenApiOperationResponseBase"
+      },
+      "OpenApiRequestBodyResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание тела запроса",
+            "nullable": true
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Обязательность тела запроса"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiContentWithMediaTypeResponseItem"
+            },
+            "description": "Контент тела запроса",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель тела запроса для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.OpenApiOperationRequests.GetOpenApiOperationById.GetOpenApiOperationByIdResponse"
+      },
+      "OpenApiResponseResponseBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "openApiStatusCode": {
+            "type": "string",
+            "description": "Статус код ответа OpenApi",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание ответа",
+            "nullable": true
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiContentWithMediaTypeResponseBase"
+            },
+            "description": "Контент OpenAPI",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель ответа операции для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.Internal.OpenApiOperationResponseBase.OpenApiOperationResponseBase"
+      },
+      "OpenApiResponseResponseItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор",
+            "format": "uuid"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "openApiStatusCode": {
+            "type": "string",
+            "description": "Статус код ответа OpenApi",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание ответа",
+            "nullable": true
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenApiContentWithMediaTypeResponseItem"
+            },
+            "description": "Контент ответа",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Модель ответа операции для A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.OpenApiOperationRequests.GetOpenApiOperationById.GetOpenApiOperationByIdResponse"
+      },
+      "ParameterLocation": {
+        "enum": [
+          "Query",
+          "Header",
+          "Path",
+          "Cookie"
+        ],
+        "type": "string",
+        "description": "Расположение параметра"
+      },
+      "PostApiEnvironmentResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор Окружения API",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на A2Soft.ApiDefender.InventoryService.Api.Contracts.Requests.ServiceRequests.PostEndpoint.PostApiEnvironmentRequest"
+      },
+      "PostServiceRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на создание сущности \"Сервис\""
+      },
+      "PostServiceResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Идентификатор созданной сущности \"Сервис\"",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на создание сущности \"Сервис\""
+      },
+      "PostVersionResponse": {
+        "type": "object",
+        "properties": {
+          "openApiDocumentId": {
+            "type": "string",
+            "description": "Идентификатор загруженного документа",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на загрузку новой версии"
+      },
+      "ProblemDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "errorId": {
+            "type": "string",
+            "description": "ИД исключения для корреляции",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "A URI reference [RFC3986] that identifies the problem type. This specification\n encourages that, when dereferenced, it provide human-readable documentation for\n the problem type (e.g., using HTML [W3C.REC-html5-20141028]). When this member\n is not present, its value is assumed to be \"about:blank\".",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem type.It SHOULD NOT change from\n    occurrence to occurrence of the problem, except for purposes of localization(e.g.,\n    using proactive content negotiation; see[RFC7231], Section 3.4).",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "description": "The HTTP status code([RFC7231], Section 6) generated by the origin server for\n    this occurrence of the problem.",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem.",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "description": "A URI reference that identifies the specific occurrence of the problem.It may\n    or may not yield further information if dereferenced.",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "object",
+            "additionalProperties": { },
+            "description": "Gets the System.Collections.Generic.IDictionary`2 for extension members.\nProblem type definitions MAY extend the problem details object with additional\nmembers. Extension members appear in the same namespace as other members of a\nproblem type.",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Сообщение с проблемой"
+      },
+      "PutApiEnvironmentRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Наименование окружения",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "description": "Url",
+            "nullable": true
+          },
+          "apiEnvironmentType": {
+            "$ref": "#/components/schemas/ApiEnvironmentTypes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на обновление окружения"
+      },
+      "PutOperationTagRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Наименование тега",
+            "nullable": true
+          },
+          "value": {
+            "description": "Значение тега",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на изменение тега"
+      },
+      "PutServiceRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Наименование",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Описание",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на изменение сущности \"Сервис\""
+      },
+      "PutShadowOpenApiOperationRequest": {
+        "type": "object",
+        "properties": {
+          "httpMethod": {
+            "$ref": "#/components/schemas/HttpMethods"
+          },
+          "path": {
+            "type": "string",
+            "description": "Путь",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на обновление операции скрытого API"
+      },
+      "PutShadowOpenApiOperationResponse": {
+        "type": "object",
+        "properties": {
+          "operationId": {
+            "type": "string",
+            "description": "Идентификатор операции",
+            "format": "uuid"
+          },
+          "operationBranchId": {
+            "type": "string",
+            "description": "Идентификатор бранча операции",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос на обновление операции скрытого API"
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "description": "Логин",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "description": "Пароль",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Запрос на регистрацию"
+      },
+      "RegisterResponse": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Идентификатор пользователя",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ответ на запрос регистрации"
+      },
+      "VulnerabilityStatuses": {
+        "enum": [
+          "Vulnerable",
+          "NotTested",
+          "Protected"
+        ],
+        "type": "string",
+        "description": "Статусы уязвимостей"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "Bearer"
+      },
+      "ApiKeyHeader": {
+        "type": "apiKey",
+        "name": "X-APIKEY",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "OpenApiDocument",
+      "description": "Internal"
+    }
+  ]
+}
